@@ -17,3 +17,13 @@ def is_integer_literal(s):
         return True
     except ValueError:
         return False
+    
+ def is_valid_java_identifier(identifier):
+    """
+    Returns True if the given identifier is a valid Java variable, class, or method name,
+    and False otherwise.
+    """
+    # Java identifiers must start with a letter, underscore, or dollar sign
+    # and can be followed by any combination of letters, digits, underscores, or dollar signs
+    pattern = r'^[a-zA-Z_$][a-zA-Z0-9_$]*$'
+    return bool(re.match(pattern, identifier))   
