@@ -27,3 +27,10 @@ def is_integer_literal(s):
     # and can be followed by any combination of letters, digits, underscores, or dollar signs
     pattern = r'^[a-zA-Z_$][a-zA-Z0-9_$]*$'
     return bool(re.match(pattern, identifier))   
+def is_valid_cpp_multiline_comment(comment):
+    """
+    Returns True if the given string is a valid C++ multiline comment, and False otherwise.
+    """
+    # C++ multiline comments start with "/*" and end with "*/"
+    pattern = r'^/\*.*\*/$'
+    return bool(re.match(pattern, comment, re.DOTALL))
